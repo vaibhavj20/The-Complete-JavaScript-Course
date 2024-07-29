@@ -1,11 +1,11 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 62.5%; /* Base font size for scaling */
   box-sizing: border-box;
 }
 
@@ -16,16 +16,16 @@ body {
   height: 100vh;
   position: relative;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   background: linear-gradient(to top left, #28b487, #7dd56f);
 }
 
 .show-modal {
-  font-size: 2rem;
+  font-size: 1.6rem; /* Adjusted for better visibility on mobile */
   font-weight: 600;
-  padding: 1.75rem 3.5rem;
-  margin: 5rem 2rem;
+  padding: 1.5rem 3rem; /* Adjusted padding for mobile devices */
+  margin: 2rem; /* Reduced margin for mobile */
   border: none;
   background-color: #fff;
   color: #444;
@@ -35,9 +35,9 @@ body {
 
 .close-modal {
   position: absolute;
-  top: 1.2rem;
-  right: 2rem;
-  font-size: 5rem;
+  top: 1rem;
+  right: 1rem;
+  font-size: 3rem; /* Adjusted for better visibility on mobile */
   color: #333;
   cursor: pointer;
   border: none;
@@ -45,36 +45,34 @@ body {
 }
 
 h1 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+  font-size: 2rem; /* Adjusted for mobile */
+  margin-bottom: 1.5rem; /* Adjusted for mobile */
 }
 
 p {
-  font-size: 1.8rem;
+  font-size: 1.6rem; /* Adjusted for mobile */
 }
 
-/* -------------------------- */
-/* CLASSES TO MAKE MODAL WORK */
 .hidden {
   display: none;
 }
 
 .modal {
-  position: absolute;
+  position: fixed; /* Changed to fixed for better positioning */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 70%;
-
+  width: 90%; /* Adjusted width for better mobile experience */
+  max-width: 600px; /* Max width for larger screens */
   background-color: white;
-  padding: 6rem;
+  padding: 4rem; /* Adjusted padding for larger screens */
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
 }
 
 .overlay {
-  position: absolute;
+  position: fixed; /* Changed to fixed for better coverage */
   top: 0;
   left: 0;
   width: 100%;
@@ -82,4 +80,55 @@ p {
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
   z-index: 5;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .show-modal {
+    font-size: 1.4rem; /* Slightly smaller font size for tablets */
+    padding: 1.25rem 2.5rem; /* Adjusted padding for tablets */
+    margin: 1.5rem; /* Reduced margin for tablets */
+  }
+
+  .close-modal {
+    font-size: 2.5rem; /* Slightly smaller close button for tablets */
+  }
+
+  .modal {
+    width: 95%; /* Adjusted width for smaller screens */
+    padding: 3rem; /* Reduced padding for tablets */
+  }
+
+  h1 {
+    font-size: 1.8rem; /* Smaller font size for headings on mobile */
+  }
+
+  p {
+    font-size: 1.4rem; /* Smaller font size for paragraphs on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .show-modal {
+    font-size: 1.2rem; /* Smaller font size for mobile phones */
+    padding: 1rem 2rem; /* Further reduced padding for mobile phones */
+    margin: 1rem; /* Further reduced margin for mobile phones */
+  }
+
+  .close-modal {
+    font-size: 2rem; /* Smaller close button for mobile phones */
+  }
+
+  .modal {
+    width: 100%; /* Full width for mobile phones */
+    padding: 1.5rem; /* Further reduced padding for mobile phones */
+  }
+
+  h1 {
+    font-size: 1.6rem; /* Smaller font size for headings on mobile phones */
+  }
+
+  p {
+    font-size: 1.2rem; /* Smaller font size for paragraphs on mobile phones */
+  }
 }
